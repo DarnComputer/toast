@@ -1,6 +1,6 @@
 <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="720" viewBox="0, 0, 600,720">
 <foreignObject x="0" y="0" width="600" height="720">
-  <image href="https://i.gyazo.com/6e6d30d9ecbf9a650a89710672b8476b.png" height="720" width="600"/>
+  <image href="href="data:image/png;base64,https://i.gyazo.com/6e6d30d9ecbf9a650a89710672b8476b.png" height="720" width="600"/>
  </foreignObject>
   <text x="50px" y="360px" style="fill:red;" transform="rotate(-5 20,40)">Tesla model x:
     <tspan x="50px" y="380px">1mil.</tspan>
