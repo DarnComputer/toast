@@ -15,12 +15,7 @@ background-repeat: no-repeat;
 }
 </style>
     <body xmlns="http://www.w3.org/1999/xhtml">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Sed mollis mollis mi ut ultricies. Nullam magna ipsum,
-      porta vel dui convallis, rutrum imperdiet eros. Aliquam
-      erat volutpat.
-    </div>
+<iframe xmlns="http://www.w3.org/1999/xhtml" src="https://github.com/DarnComputer/toast/blob/main/taost.svg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
      </body>
   </foreignObject>
 </svg>
