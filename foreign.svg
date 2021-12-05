@@ -7,7 +7,6 @@ body{
 background-image: url("https://darncomputer.github.io/toasts/image2vector%20(2).svg");
 overflow: hidden;
 background-position: center;
-background-attachment: fixed;
 background-size: 600px 720px;
 width: 1380px;
 height: 847px;
