@@ -1,21 +1,7 @@
-<svg  id="container" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="850" viewBox="0, 0, 400,504.67012601927354">
-<defs>
-</defs>
-  <foreignObject x="20" y="20" width="160" height="160">
-    <style xmlns="http://www.w3.org/1999/xhtml">
-body{
-background-image: url("https://i.gyazo.com/ddb05e37b1246c56d32e10d4a98b2970.png");
-overflow: hidden;
-background-position: center;
-background-size: 600px 720px;
-width: 1380px;
-height: 847px;
-scrollbar-width: none;
-background-repeat: no-repeat;
-}
-</style>
+<svg  id="container" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="720" viewBox="0, 0, 600,720">
+  <foreignObject x="20" y="20" width="600" height="720">
     <body xmlns="http://www.w3.org/1999/xhtml">
-    <div xmlns="http://www.w3.org/1999/xhtml">
+    <div width="160" height="160" xmlns="http://www.w3.org/1999/xhtml">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Sed mollis mollis mi ut ultricies. Nullam magna ipsum,
       porta vel dui convallis, rutrum imperdiet eros. Aliquam
