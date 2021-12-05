@@ -1,10 +1,27 @@
 <svg  id="container" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="850" viewBox="0px, 0px, 400,504.67012601927354">
+<defs>
+<style>
+body{
+background-image: url("https://cdn.discordapp.com/attachments/477593017033949205/912327596627333181/SSM_BOARD.png");
+overflow: hidden;
+background-position: center;
+background-attachment: fixed;
+background-size: 1380px 847px;
+width: 1380px;
+height: 847px;
+scrollbar-width: none;
+background-repeat: no-repeat;
+}
+</style>
+</defs>
   <foreignObject x="20" y="20" width="160" height="160">
+    <body>
     <div xmlns="http://www.w3.org/1999/xhtml">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Sed mollis mollis mi ut ultricies. Nullam magna ipsum,
       porta vel dui convallis, rutrum imperdiet eros. Aliquam
       erat volutpat.
     </div>
+     </body>
   </foreignObject>
 </svg>
