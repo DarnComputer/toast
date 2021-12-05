@@ -1,22 +1,9 @@
-        <svg width="600px" height="720px" viewBox="0 0 203 224" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <defs>
-            <style>
-            .container {
-
-  position:absolute;
-  top:200px;
-  left:600px; 
-  right:0;
-  bottom:0;
-
-
-}
-            </style>
-            </defs>
-			
-			    <foreignObject width="100%" height="100%">
-
-<iframe src="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
- 
+<svg width="960" height="850">
+  <g transform="translate(300, 0) rotate(20)">
+    <foreignObject x="10" y="10" width="800" height="800">
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <iframe src="http://starkravingfinkle.org/blog" style="width:700px;height:700px"></iframe>
+      </body>
     </foreignObject>
-        </svg>
+  </g>
+</svg>
