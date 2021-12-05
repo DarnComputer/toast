@@ -6,7 +6,7 @@ background-image: url("https://cdn.discordapp.com/attachments/477593017033949205
 overflow: hidden;
 background-position: center;
 background-attachment: fixed;
-background-size: 1380px 847px;
+background-size: 600px 720px;
 width: 1380px;
 height: 847px;
 scrollbar-width: none;
