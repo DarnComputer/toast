@@ -163,7 +163,7 @@ font-size: 10px;
       Sed mollis mollis mi ut ultricies. Nullam magna ipsum,
       porta vel dui convallis, rutrum imperdiet eros. Aliquam
       erat volutpat.</div>  
-  <div class="item15"><img src="./map.png"/></div>
+  <div class="item15"><img src="./map.png?sanitize=true"/></div>
   <div class="item16">      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Sed mollis mollis mi ut ultricies. Nullam magna ipsum,
       porta vel dui convallis, rutrum imperdiet eros. Aliquam
