@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<style>
+		html, body {
+			height: 95%;
+			margin: 0;
+			padding: 20px;
+		}
+		#map {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+<div id='map'></div>
+<script>
+	
+	var map = L.map('map', {
+		crs: L.CRS.Simple,
+		minZoom: -4,
+		maxZoom: 0,
+		zoom: -1.65
+	});
+	
+	var bottomLeft = [-4000, -4000];
+	var topRight = [8000, 6000];
+	var bounds = [bottomLeft, topRight];
+	
+	var yx = L.latLng;
+	
+	var xy = function(x, y) {
+		if (L.Util.isArray(x)) {    // When doing xy([x, y]);
+			return yx(x[1], x[0]);
+		}
+		return yx(y, x);  // When doing xy(x, y);
+	};
+	
+	
+	var burgerShot = L.icon({
+    iconUrl: 'https://i.gyazo.com/4e12eacc4958f98f020a33bc52d858c4.png',
+    //shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [39, 47], // size of the icon
+    //shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 47], // point of the icon which will correspond to marker's location
+    //shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+	var pandaIcn = L.icon({
+    iconUrl: 'https://i.gyazo.com/40590ca7f4a9b11d1ddc478c96cf9bdb.png',
+    //shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [39,42], // size of the icon
+    //shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 42], // point of the icon which will correspond to marker's location
+    //shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+	var cHotdogIcn = L.icon({
+    iconUrl: 'https://i.gyazo.com/5a1b5d7c011c4238f461dbc5697acd2b.png',
+    //shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [64,51], // size of the icon
+    //shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 31], // point of the icon which will correspond to marker's location
+    //shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+	var yjIcn = L.icon({
+    iconUrl: 'https://i.gyazo.com/7af750828eec4d34709f978b3ca1f420.png',
+    //shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [65,45], // size of the icon
+    //shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 45], // point of the icon which will correspond to marker's location
+    //shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+	var mojitoIcn = L.icon({
+    iconUrl: 'https://i.gyazo.com/727a1257f1cb04761a22f0b0ba8a0a9a.png',
+    //shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [23, 48], // size of the icon
+    //shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 48], // point of the icon which will correspond to marker's location
+    //shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+	
+	
+	
+	
+	var jute = xy( 715, -985);
+	var juteseed = xy( 1785, 4570);
+	var smeltery = xy(1060, -1975);
+	var oil = xy(1360, -1840);
+	var sellWine = xy(-1889, 2074);
+	var pickGrapes = xy(-1824, 2136);
+	var meats = xy(-76,6230);
+	var pGarden = xy(-163,272);
+	var bShot = xy([-1184, -894]);
+	var yJack = xy(1984, 3030);
+	var mojitos = xy(-116,6372);
+	var bMamas = xy(-1392,-610);
+	var dogs = xy(43,-1012);
+	var wineManu = xy(841,-1937);
+	var vCorn = xy(118,-1304);
+	var gym = xy(-53,-1291);
+	var mMerchant = xy(36,-2677);
+	// finish these V
+	var lux = xy(-784,-237);
+	var pdm = xy(-36,-1112);
+	var bHouse = xy(1535,3771);
+	var lsc = xy(-365,-132);
+	var secChance = xy(-224,-1392);
+	var thirChance = xy(381,3559);
+	var youTool = xy(2752,3471);
+	var bMine = xy(-560,2086);
+	var hLodge = xy(-680,5811);
+	
+
+	//var travel = L.polyline([vanda, smeltery]).addTo(map);
+
+	map.setView(xy(20, -1120));
+	
+	
+    var neighborhoods = L.imageOverlay('https://i.gyazo.com/05b310d242e603d60948c979d197931d.jpg', bounds).addTo(map),
+	satlite = L.imageOverlay('https://i.gyazo.com/26c0d2c9f37e6df78f5bff22d7e5a637.jpg', bounds).addTo(map);
+	
+	var myIcon = L.icon({
+    //iconUrl: 'https://i.gyazo.com/e20075f67d7ad1ca977fd9ea665e7e92.png',
+    iconSize: [25, 41]
+	});
+	
+	var gangs = L.layerGroup();
+	var restraunts = L.layerGroup();
+	var club = L.layerGroup();
+	var dealerships = L.layerGroup();
+	
+	var markers = L.layerGroup();
+	
+		L.marker(jute).bindPopup('Jute Cloth').addTo(markers).bindTooltip("Jute Cloth"),
+		L.marker(juteseed).bindPopup('Jute Seeds').addTo(markers).bindTooltip("Jute Seeds"),
+		L.marker(smeltery).bindPopup('Smeltery').addTo(markers).bindTooltip("Smeltery"),
+		L.marker(oil).bindPopup('Oil Refinement').addTo(markers).bindTooltip("Oil Refinement"),
+		L.marker(sellWine).bindPopup('Sell Wine').addTo(markers).bindTooltip("Sell Wine"),
+		L.marker(pickGrapes).bindPopup('Pick Grapes').addTo(markers).bindTooltip("Pick Grapes"),
+		L.marker(meats).bindPopup('Buy Meats').addTo(markers).bindTooltip("Buy Meats"),
+		L.marker(wineManu).bindPopup('Wine Manufacture').addTo(markers).bindTooltip("Wine Manufacture"),
+		L.marker(gym).bindPopup('Gym').addTo(markers).bindTooltip("Gym"),
+		L.marker(mMerchant).bindPopup('Metal Merchant').addTo(markers).bindTooltip("Metal Merchant"),
+		L.marker(youTool).bindPopup('You Tool').addTo(markers).bindTooltip("You Tool"),
+		L.marker(bMine).bindPopup('Blast mine').addTo(markers).bindTooltip("Blast mine"),
+		L.marker(pGarden, {icon: pandaIcn}).bindPopup('Panda Garden').addTo(restraunts).bindTooltip("Panda Garden"),
+		L.marker(bShot, {icon: burgerShot}).bindPopup('Burger Shot').addTo(restraunts).bindTooltip("Burger Shot"),
+		L.marker(yJack, {icon: yjIcn}).bindPopup('Yellow Jack').addTo(restraunts).bindTooltip("Yellow Jack"),
+		L.marker(mojitos, {icon: mojitoIcn}).bindPopup('Mojitos').addTo(restraunts).bindTooltip("Mojitos"),
+		L.marker(dogs, {icon: cHotdogIcn}).bindPopup('Chihuahua dogs').addTo(restraunts).bindTooltip("Chihuahua dogs"),
+		L.marker(bMamas).bindPopup('Bahama Mamas').addTo(club).bindTooltip("Bahama Mamah"),
+		L.marker(vCorn).bindPopup('Vanilla Unicorn').addTo(club).bindTooltip("Vanilla Unicorn"),
+		L.marker(lux).bindPopup('Lux Autos').addTo(dealerships).bindTooltip("Lux Autos"),
+		L.marker(pdm).bindPopup('PDM').addTo(dealerships).bindTooltip("PDM"),
+		L.marker(bHouse).bindPopup('Boat House').addTo(dealerships).bindTooltip("Boat House"),
+		L.marker(lsc).bindPopup('Los Santos Customs').addTo(dealerships).bindTooltip("Los Santos Customs"),
+		L.marker(secChance).bindPopup('2nd Chance Autos').bindTooltip("2nd Chance Autos").addTo(dealerships);
+		L.marker(thirChance).bindPopup('3nd Chance Autos').bindTooltip("3rd Chance Autos").addTo(dealerships);
+		L.marker(hLodge).bindPopup('Hunting Zone<br/> <img src="https://i.gyazo.com/b5f668043cca83ead3d6a14065766fe4.jpg" alt="hunting zone" width="700" height="500"/>', { maxWidth : 800 }).bindTooltip("Hunting Lodge").addTo(dealerships);
+		
+		
+		
+		
+	
+	
+	var baseMaps = {
+    "neighborhoods": neighborhoods,
+	"satlite": satlite
+	};
+
+	var overlayMaps = {
+		"Legal Money": markers,
+		"Gangs": gangs,
+		"Restraunts" : restraunts,
+		"Club" : club,
+		"Dealerships" : dealerships
+	};
+		
+	
+	
+
+	
+
+	//var image = L.imageOverlay('https://i.gyazo.com/26c0d2c9f37e6df78f5bff22d7e5a637.jpg', bounds).addTo(map);
+	
+	var pGangs = []
+
+
+	var famc = L.polygon([
+    
+		
+    [-265, 1220],
+	[-563, 1450],
+    [-813, 1440],
+    [-835, 1028],
+	[-535, 800],
+	[-328, 1096]
+	
+	], 
+	{color: 'cyan',
+	fillColor: 'cyan',}
+	).addTo(gangs).bindPopup("Cafe Bois").bindTooltip("Cafe Bois");
+	
+	
+	var russians = L.polygon([
+    
+		
+    [1203, 1272],
+	[1199, 1552],
+    [1019, 1552],
+    [1003, 1312]
+	
+	], 
+	{color: '#81E2FF',
+	fillColor: '#81E2FF',}
+	).addTo(gangs).bindPopup("Cartel").bindTooltip("Cartel");
+
+	
+	var fdf = L.polygon([
+    
+		
+    [-1389, -110],
+	[-1380, 63],
+    [-1406, 128],
+    [-1772, -174],
+	[-1650, -325],
+    [-1456, -250]
+	
+	], 
+	{color: 'green',
+	fillColor: 'green',}
+	).addTo(gangs).bindPopup("FDF").bindTooltip("FDF");
+	
+	
+	var robbie = L.polygon([
+    
+		
+    [4388, 2748],
+	[3619, 172],
+    [3297, 234],
+    [3173, 486],
+	[3187, 964],
+    [3081, 1018],
+    [2951, 1040],
+    [2951, 1906],
+	[2993, 2444],
+	[3133, 2642],
+	[3422, 2780],
+	[3869, 2908],
+	[4005, 2904]
+	
+	], 
+	{color: 'black',
+	fillColor: 'yellow',}
+	).addTo(gangs).bindPopup("Yellow Jack").bindTooltip("Yellow Jack");
+	
+	
+	var theLost = L.polygon([
+    
+		
+    [6730, 692],
+	[5366, -658],
+    [6144, -1418],
+    [7343, 46]
+	
+	], 
+	{color: 'black',
+	fillColor: 'black',}
+	).addTo(gangs).bindPopup("The Lost").bindTooltip("The Lost");
+	
+	
+	var pandas = L.polygon([
+    
+		
+    [-38, 696],
+	[306, 692],
+    [987, 320],
+    [951, -700],
+    [810, -1168],
+    [622, -1444],
+	[437, -1407],
+	[438, -742],
+	[2, -741]
+	
+	], 
+	{color: 'black',
+	fillColor: 'white',}
+	).addTo(gangs).bindPopup("Pandas").bindTooltip("Pandas");
+	
+	
+	var ballas = L.polygon([
+    
+		
+    [-1732, -50],
+	[-1861, 85],
+    [-1790, 160],
+    [-1860, 250],
+	[-1995, 145],
+    [-2028, 130],
+    [-2030, 96],
+    [-1964, 47],
+    [-1790, -147]
+	
+	], 
+	{color: 'purple',
+	fillColor: 'purple',}
+	).addTo(gangs).bindPopup("Ballas").bindTooltip("Ballas");
+	
+	var vagos = L.polygon([
+    
+		
+    [-2029, 150],
+	[-1551, 540],
+    [-1609, 610],
+    [-1727, 555],
+	[-1826, 532],
+    [-1876, 500],
+    [-1911, 504],
+    [-2071, 500],
+    [-2176, 365],
+    [-2077, 236]
+	
+	], 
+	{color: 'yellow',
+	fillColor: 'yellow',}
+	).addTo(gangs).bindPopup("Vagos").bindTooltip("Vagos");
+	
+	var misfits = L.polygon([
+    
+		
+    [-555, -444],	
+    [-591, -898],
+	[-1139, -720],
+	[-1169, -564],
+	[-1163, -410]
+	
+	], 
+	{color: 'gray',
+	fillColor: 'darkgray',}
+	).addTo(gangs).bindPopup("Misfits").bindTooltip("Misfits");
+	
+	var aztecas = L.polygon([
+    
+		
+    [-1755, 387],
+	[-1600, 188],
+	[-1448, 458],
+	[-1454, 519],
+	[-1526, 522],
+    [-1552, 542],
+	[-1590, 599],
+	[-1623, 605],
+	[-1841, 583],
+	[-1904, 518],
+	[-1851, 484],
+	
+	
+	], 
+	{color: '#008799',
+	fillColor: '#00e1ff',}
+	).addTo(gangs).bindPopup("Aztecas").bindTooltip("Aztecas");
+	
+	
+	map.on('click', function (event) {
+	var coords = event.latlng;
+	L.popup()
+	.setLatLng(coords)
+	.setContent('[' + Math.floor(coords.lng) + ',' + Math.floor(coords.lat) +']')
+	.openOn(map);
+	});
+	
+L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+
+        marker.bindPopup("Popup content");
+        marker.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        marker.on('mouseout', function (e) {
+            this.closePopup();
+        });
+	//fdf.bindPopup("FDF");
+
+</script>
+
+
+
+</body>
+</html>
